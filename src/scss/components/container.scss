@@ -9,13 +9,19 @@
   }
 
   &__left {
+    position: relative;
     flex-basis: 40%;
     overflow: scroll;
     overflow-x: hidden;
+    z-index: 4;
   }
 
   &__right {
+    position: relative;
     background: red;
-    flex-basis: 60%
+    flex-basis: 60%;
+    transform: translateX(-2rem);    
+    padding: 1rem;
+    z-index: 5;
   }
 }
