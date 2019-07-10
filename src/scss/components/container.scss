@@ -1,0 +1,21 @@
+.container {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  padding: 10rem 0 0rem;
+
+  &__side {
+    height: 100%;
+  }
+
+  &__left {
+    flex-basis: 40%;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  &__right {
+    background: red;
+    flex-basis: 60%
+  }
+}

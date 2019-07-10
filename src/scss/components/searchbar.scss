@@ -1,0 +1,18 @@
+.searchbar {
+  width: 70%;
+
+  & input {
+    font-size: 2rem;
+    font-family: inherit;
+    color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba(16, 172, 132,1.0);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+    transition: all .3s;
+    outline: none;
+  }
+}
