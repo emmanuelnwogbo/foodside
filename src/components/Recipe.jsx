@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import '../scss/components/recipe.scss'
+import { getRecipeDetails } from '../reduxStore/actions';
 
 const Recipe = ({
   image,
@@ -10,10 +12,12 @@ const Recipe = ({
   publisher_url,
   id,
   f2f_url,
-  source_url
+  source_url,
+  getRecipeDetails,
+  time_to_prepare
 }) => {
   return (
-    <div className={'recipe'} id={id}>
+    <div className={'recipe'} id={id} onClick={() => getRecipeDetails(id, time_to_prepare)}>
       <figure>
         <img src={image}/>
       </figure>
@@ -26,4 +30,10 @@ const Recipe = ({
   )
 }
 
-export default Recipe;
+function mapStateToProps(state) {
+  return {
+    state: state.recipeDetailsReducer
+  }
+}
+
+export default connect(mapStateToProps, { getRecipeDetails })(Recipe);

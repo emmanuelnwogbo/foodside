@@ -15,6 +15,7 @@ class LeftContainer extends Component {
   returnRecipeCards = () => {
     if (this.props.state.recipes.length > 0) {
       return this.props.state.recipes.map(recipe => {
+        recipe.time_to_prepare = Math.floor(Math.random()*(45-25+1)+25);
         return (
           <Suspense key={recipe.recipe_id} fallback={<div></div>}>
             <Recipe 
@@ -25,7 +26,8 @@ class LeftContainer extends Component {
               publisher_url={recipe.publisher_url}
               id={recipe.recipe_id}
               f2f_url={recipe.f2f_url}
-              source_url={recipe.source_url}/>
+              source_url={recipe.source_url}
+              time_to_prepare={recipe.time_to_prepare}/>
           </Suspense>
         )
       })

@@ -31,14 +31,17 @@ export const setSearchTerm = (term) => {
   }
 }
 
-export const getRecipeDetails = (id) => (dispatch) => {
+export const getRecipeDetails = (id, time_to_prepare) => (dispatch) => {
   dispatch({ type: GET_RECIPE_DETAILS_PENDING })
   fetch(`${proxy}http://www.food2fork.com/api/get?key=${key}&rId=${id}`)
     .then(response => response.json())
-    .then(data => dispatch({
-      type: GET_RECIPE_DETAILS,
-      payload: data
-    }))
+    .then(data => {
+      data.recipe.time_to_prepare = time_to_prepare;
+      dispatch({
+        type: GET_RECIPE_DETAILS,
+        payload: data
+      })
+    })
     .catch(error => dispatch({
       type: GET_RECIPE_DETAILS_FAILED,
       payload: error
