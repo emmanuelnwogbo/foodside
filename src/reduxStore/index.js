@@ -1,3 +1,9 @@
-import { recipeReducer } from './reducers';
+import { 
+  recipeReducer,
+  recipeDetailsReducer
+ } from './reducers';
 
-export default recipeReducer
+export default {
+  recipeReducer,
+  recipeDetailsReducer
+}

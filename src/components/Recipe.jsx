@@ -2,16 +2,26 @@ import React from 'react';
 
 import '../scss/components/recipe.scss'
 
-const Recipe = () => {
+const Recipe = ({
+  image,
+  social_rank,
+  title,
+  publisher,
+  publisher_url,
+  id,
+  f2f_url,
+  source_url
+}) => {
   return (
-    <div className={'recipe'}>
+    <div className={'recipe'} id={id}>
       <figure>
-        <img src={'./imgs/food-1.jpg'}/>
+        <img src={image}/>
       </figure>
       <div className={'recipe__details'}>
-        <h3>Name of Recipe</h3>
-        <p>Posted by</p>
+        <h3>{title}</h3>
+        <p>{publisher}</p>
       </div>
+      <div className={'recipe__socialranking'}>Social rank:<span>{social_rank.toFixed()}</span></div>
     </div>
   )
 }

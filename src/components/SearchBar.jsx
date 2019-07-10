@@ -11,14 +11,14 @@ class SearchBar extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-    //this.props.getRecipes('pizza')
+    //console.log(this.props);
+    this.props.getRecipes('pizza')
   }
 
   render() {
     return (
       <div className={'searchbar'}>
-        <input />
+        <input placeholder={'Find a recipe'}/>
       </div>
     )
   }

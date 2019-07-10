@@ -11,6 +11,7 @@
 
   &__name {
     margin-right: 5rem;
+    font-weight: 900;
 
     & span {
       display: inline-block;
@@ -18,7 +19,6 @@
 
     & span:nth-child(1) {
       color: rgba(192, 57, 43,1.0);
-      font-weight: 700;
       font-size: 3rem;
     }
 

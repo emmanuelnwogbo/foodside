@@ -1,4 +1,5 @@
 import React, { Suspense, lazy, Component } from 'react';
+import { connect } from 'react-redux';
 
 const Recipe = lazy(() => import('./Recipe'));
 import '../scss/components/container.scss'
@@ -12,13 +13,27 @@ class LeftContainer extends Component {
   }
 
   returnRecipeCards = () => {
-    return this.state.devRecipes.map(recipe => {
-      return (
-        <Suspense key={recipe} fallback={<div></div>}>
-          <Recipe />
-        </Suspense>
-      )
-    })
+    if (this.props.state.recipes.length > 0) {
+      return this.props.state.recipes.map(recipe => {
+        return (
+          <Suspense key={recipe.recipe_id} fallback={<div></div>}>
+            <Recipe 
+              image={recipe.image_url}
+              social_rank={recipe.social_rank}
+              title={recipe.title}
+              publisher={recipe.publisher}
+              publisher_url={recipe.publisher_url}
+              id={recipe.recipe_id}
+              f2f_url={recipe.f2f_url}
+              source_url={recipe.source_url}/>
+          </Suspense>
+        )
+      })
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props.state)
   }
 
   render() {
@@ -30,4 +45,10 @@ class LeftContainer extends Component {
   }
 }
 
-export default LeftContainer;
+function mapStateToProps(state) {
+  return {
+    state: state.recipeReducer
+  }
+}
+
+export default connect(mapStateToProps)(LeftContainer);

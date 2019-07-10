@@ -5,12 +5,14 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 
-import recipeReducer from './reduxStore';
+import reducers from './reduxStore';
+const { recipeReducer, recipeDetailsReducer } = reducers;
 
 const logger = createLogger();
 
 const rootReducer = combineReducers({
-  recipeReducer
+  recipeReducer,
+  recipeDetailsReducer
 });
 
 const store = createStore(

@@ -1,21 +1,86 @@
 .recipe {
+  position: relative;
   display: flex;
   align-items: center;
   margin: 1rem;
   box-shadow: 0 1rem 20rem rgba(16, 172, 132,.5);    
   overflow: hidden;
   border-radius: 1rem .3rem;
+  cursor: pointer;
+  transition: all .2s ease-in;
+
+  &:hover {
+    box-shadow: 0 1rem 20rem rgba(192, 57, 43,1.0); 
+
+    & > figure::before {
+      opacity: .4;
+    }
+
+    & > figure img {
+      transform: scale(1.2);
+    }
+  }
 
   & figure {
-    height: 19rem;
-    width: 25rem;
+    position: relative;
+    height: 18rem;
+    width: 35%;
     overflow: hidden;
+    transition: all .2s ease-in;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+      background: #c0392b;
+      opacity: 0;
+      transition: all .2s ease-in;
+    }
     
     & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: all .2s ease-in;
+    }
+  }
+
+  &__details {
+    padding: 2rem;
+    width: 65%;
+
+    & h3 {
+      font-size: 2.5rem;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    & p {
+      font-size: 2rem;
+    }
+  }
+
+  &__socialranking {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .5rem 2rem;
+    font-weight: 900;
+    font-size: 1.7rem;
+    color: #fff;
+    border-radius: 1rem .3rem .3rem;
+    background: #10ac84;
+
+    & span {
+      display: inline-block;
+      margin-left: .5rem;
     }
   }
 }

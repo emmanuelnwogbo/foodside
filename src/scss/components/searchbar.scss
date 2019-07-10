@@ -1,5 +1,5 @@
 .searchbar {
-  width: 70%;
+  width: 60%;
 
   & input {
     font-size: 2rem;
@@ -14,5 +14,9 @@
     display: block;
     transition: all .3s;
     outline: none;
+
+    &::-webkit-input-placeholder {
+      color: rgba(192, 57, 43,1.0);
+  }
   }
 }
