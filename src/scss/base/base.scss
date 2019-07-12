@@ -10,3 +10,16 @@ html {
   box-sizing: border-box;
   font-size: 63%;
 }
+
+.loading-svg {
+  display: inline-block;
+  margin-top: 10rem;
+
+  & svg {
+    display: inline-block;
+    animation: 1s linear 0s infinite normal none spin;
+    height: 8rem;
+    width: 8rem;
+    fill: rgba(192, 57, 43,1.0);
+  }
+}

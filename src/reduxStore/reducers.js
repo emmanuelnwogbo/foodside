@@ -12,7 +12,8 @@ const initialState = {
   recipes: [],
   error: false,
   count: 0,
-  recipeDetails: null
+  recipeDetails: null,
+  recipeClicked: false
 }
 
 export const recipeReducer  = (state=initialState, action={}) => {
@@ -44,13 +45,20 @@ export const recipeReducer  = (state=initialState, action={}) => {
 
 export const recipeDetailsReducer = (state=initialState, action={}) => {
   switch(action.type) {
+    case GET_RECIPES:
+      return Object.assign({}, state, {
+        recipes: action.payload.recipes,
+        count: action.payload.count,
+        error: false
+      });
     case GET_RECIPE_DETAILS:
       return Object.assign({}, state, {
         recipeDetails: action.payload
     });
     case GET_RECIPE_DETAILS_PENDING:
       return Object.assign({}, state, {
-        recipeDetails: null
+        recipeDetails: null,
+        recipeClicked: true
     });
     default:
       return state;

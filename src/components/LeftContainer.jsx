@@ -32,6 +32,21 @@ class LeftContainer extends Component {
         )
       })
     }
+
+    return (
+      <div style={{
+        height: '100%',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+      }}>
+        <span className={'loading-svg'}>
+          <svg>
+            <use xlinkHref="./imgs/sprite.svg#icon-ccw"/>
+          </svg>
+        </span>
+      </div>
+    );
   }
 
   componentDidMount() {
