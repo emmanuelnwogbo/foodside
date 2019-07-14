@@ -18,7 +18,7 @@ class SearchBar extends Component {
   }
 
   setRecipeSearchTerm = (event) => {
-    console.log(event.target.value);
+    //console.log(event.target.value);
     document.getElementById('search-ui').firstElementChild.innerHTML = event.target.value;
   }
 

@@ -1,6 +1,14 @@
 .slider {
   margin: 0 auto;
-  width: 20rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+
+  &__inputarea {
+    width: 20rem;
+  }
 }
 
 input[type=range] {

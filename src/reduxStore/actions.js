@@ -58,7 +58,7 @@ export const setSearchTerm = (term) => {
 }
 
 export const sortRecipeTime = (time) => {
-  console.log(time);
+  //console.log(time);
   return {
     type: SET_RECIPE_COOK_DURATION,
     payload: time

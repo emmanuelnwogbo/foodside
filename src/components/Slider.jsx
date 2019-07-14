@@ -18,12 +18,17 @@ class Slider extends Component {
   render() {
     return (
       <div className={'slider'}>
-        <input
-          min={'25'}
-          max={'45'} 
-          value={`${this.props.state.cookingDuration}`}
-          type='range'
-          onChange={this.changeValue}></input>
+        <div><p>Sort minutes to prepare</p></div>
+        <div style={{
+          color: '#c0392b'
+        }}>{this.props.state.cookingDuration} mins</div>
+        <div className={'slider__inputarea'}>
+          <input
+            min={'25'}
+            max={'45'} 
+            value={`${this.props.state.cookingDuration}`}
+            type='range'
+            onChange={this.changeValue}></input></div>
       </div>
     )
   }
