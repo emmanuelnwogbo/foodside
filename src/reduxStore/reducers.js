@@ -4,7 +4,8 @@ import {
   GET_RECIPES_PENDING,
   SET_SEARCH_TERM,
   GET_RECIPE_DETAILS,
-  GET_RECIPE_DETAILS_PENDING
+  GET_RECIPE_DETAILS_PENDING,
+  SET_CURRENT_RECIPE_ID
 } from './constants';
 
 const initialState = {
@@ -13,7 +14,9 @@ const initialState = {
   error: false,
   count: 0,
   recipeDetails: null,
-  recipeClicked: false
+  recipeClicked: false,
+  currentRecipeId: null,
+  initialRecipe: null
 }
 
 export const recipeReducer  = (state=initialState, action={}) => {
@@ -22,7 +25,8 @@ export const recipeReducer  = (state=initialState, action={}) => {
       return Object.assign({}, state, {
         recipes: action.payload.recipes,
         count: action.payload.count,
-        error: false
+        error: action.payload.error ? "limit" : undefined,
+        initialRecipe: action.payload.recipes ? action.payload.recipes[0] : null
       });
     case GET_RECIPES_PENDING:
       return Object.assign({}, state, {
@@ -38,6 +42,14 @@ export const recipeReducer  = (state=initialState, action={}) => {
       return Object.assign({}, state, {
         searchTerm: action.payload
     });
+    case GET_RECIPE_DETAILS:
+      return Object.assign({}, state, {
+        recipeDetails: action.payload
+    });
+    case SET_CURRENT_RECIPE_ID:
+      return Object.assign({}, state, {
+        currentRecipeId: action.payload
+    });
     default:
       return state;
   }
@@ -49,8 +61,9 @@ export const recipeDetailsReducer = (state=initialState, action={}) => {
       return Object.assign({}, state, {
         recipes: action.payload.recipes,
         count: action.payload.count,
-        error: false
-      });
+        error: action.payload.error ? "limit" : undefined,
+        initialRecipe: action.payload.recipes ? action.payload.recipes[0] : null
+    });
     case GET_RECIPE_DETAILS:
       return Object.assign({}, state, {
         recipeDetails: action.payload
@@ -59,6 +72,14 @@ export const recipeDetailsReducer = (state=initialState, action={}) => {
       return Object.assign({}, state, {
         recipeDetails: null,
         recipeClicked: true
+    });
+    case SET_CURRENT_RECIPE_ID:
+      return Object.assign({}, state, {
+        currentRecipeId: action.payload
+    });
+    case SET_SEARCH_TERM:
+      return Object.assign({}, state, {
+        searchTerm: action.payload
     });
     default:
       return state;

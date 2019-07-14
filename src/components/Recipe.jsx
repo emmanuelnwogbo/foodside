@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import '../scss/components/recipe.scss'
-import { getRecipeDetails } from '../reduxStore/actions';
+import { getRecipeDetails, setCurrentRecipeId } from '../reduxStore/actions';
 
 const Recipe = ({
   image,
@@ -14,10 +14,22 @@ const Recipe = ({
   f2f_url,
   source_url,
   getRecipeDetails,
-  time_to_prepare
+  setCurrentRecipeId,
+  time_to_prepare,
+  state
 }) => {
+  console.log(state);
+  const handleRecipeClick = () => {
+    if (state.currentRecipeId === id) {
+      return;
+    }
+    
+    getRecipeDetails(id, time_to_prepare);
+    setCurrentRecipeId(id);
+  }
+
   return (
-    <div className={'recipe'} id={id} onClick={() => getRecipeDetails(id, time_to_prepare)}>
+    <div className={'recipe'} id={id} onClick={handleRecipeClick}>
       <figure>
         <img src={image}/>
       </figure>
@@ -36,4 +48,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getRecipeDetails })(Recipe);
+export default connect(mapStateToProps, { getRecipeDetails, setCurrentRecipeId })(Recipe);

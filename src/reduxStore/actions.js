@@ -5,13 +5,21 @@ import {
   SET_SEARCH_TERM,
   GET_RECIPE_DETAILS,
   GET_RECIPE_DETAILS_PENDING,
-  GET_RECIPE_DETAILS_FAILED
+  GET_RECIPE_DETAILS_FAILED,
+  SET_CURRENT_RECIPE_ID
 } from './constants';
 
 import { key, proxy } from '../config';
 
+export const setCurrentRecipeId = (id) => {
+  return {
+    type: SET_CURRENT_RECIPE_ID,
+    payload: id
+  }
+}
+
 export const getRecipeDetails = (id, time_to_prepare) => (dispatch) => {
-  dispatch({ type: GET_RECIPE_DETAILS_PENDING })
+  dispatch({ type: GET_RECIPE_DETAILS_PENDING });
   fetch(`${proxy}http://www.food2fork.com/api/get?key=${key}&rId=${id}`)
     .then(response => response.json())
     .then(data => {
@@ -28,7 +36,7 @@ export const getRecipeDetails = (id, time_to_prepare) => (dispatch) => {
 }
 
 export const getRecipes = (value) => (dispatch) => {
-  dispatch({ type: GET_RECIPES_PENDING })
+  dispatch({ type: GET_RECIPES_PENDING });
   fetch(`${proxy}http://food2fork.com/api/search?key=${key}&q=${value}`)
     .then(response => response.json())
     .then(data => dispatch({
