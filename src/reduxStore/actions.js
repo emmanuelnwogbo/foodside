@@ -6,7 +6,8 @@ import {
   GET_RECIPE_DETAILS,
   GET_RECIPE_DETAILS_PENDING,
   GET_RECIPE_DETAILS_FAILED,
-  SET_CURRENT_RECIPE_ID
+  SET_CURRENT_RECIPE_ID,
+  SET_RECIPE_COOK_DURATION
 } from './constants';
 
 import { key, proxy } from '../config';
@@ -53,5 +54,13 @@ export const setSearchTerm = (term) => {
   return {
     type: SET_SEARCH_TERM,
     payload: term
+  }
+}
+
+export const sortRecipeTime = (time) => {
+  console.log(time);
+  return {
+    type: SET_RECIPE_COOK_DURATION,
+    payload: time
   }
 }

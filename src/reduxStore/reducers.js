@@ -5,7 +5,8 @@ import {
   SET_SEARCH_TERM,
   GET_RECIPE_DETAILS,
   GET_RECIPE_DETAILS_PENDING,
-  SET_CURRENT_RECIPE_ID
+  SET_CURRENT_RECIPE_ID,
+  SET_RECIPE_COOK_DURATION
 } from './constants';
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
   recipeDetails: null,
   recipeClicked: false,
   currentRecipeId: null,
-  initialRecipe: null
+  initialRecipe: null,
+  cookingDuration: '45'
 }
 
 export const recipeReducer  = (state=initialState, action={}) => {
@@ -50,6 +52,10 @@ export const recipeReducer  = (state=initialState, action={}) => {
       return Object.assign({}, state, {
         currentRecipeId: action.payload
     });
+    case SET_RECIPE_COOK_DURATION:
+      return Object.assign({}, state, {
+        cookingDuration: action.payload
+    });
     default:
       return state;
   }
@@ -80,6 +86,10 @@ export const recipeDetailsReducer = (state=initialState, action={}) => {
     case SET_SEARCH_TERM:
       return Object.assign({}, state, {
         searchTerm: action.payload
+    });
+    case SET_RECIPE_COOK_DURATION:
+      return Object.assign({}, state, {
+        cookingDuration: action.payload
     });
     default:
       return state;

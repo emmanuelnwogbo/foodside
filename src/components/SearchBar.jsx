@@ -39,7 +39,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div className={'searchbar'}>
-        <input id='search' placeholder={'Find a recipe'} 
+        <input id='search' autoComplete="off" placeholder={'Find a recipe'} 
           onClick={this.openSearchUI}
           onKeyDown={this.handleSearch}
           onChange={this.setRecipeSearchTerm}/>
