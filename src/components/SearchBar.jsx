@@ -21,6 +21,10 @@ class SearchBar extends Component {
   }
 
   openSearchUI = () => {
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+      return;
+    }
+    
     document.getElementById('search-ui').style.display = `block`;
   }
 

@@ -1,0 +1,64 @@
+.mobileheader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem;
+  z-index: 1000;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+
+  &__burger {
+    margin-right: 1.5rem;
+
+    & span {
+      display: block;
+      width: 6rem;
+      padding: .5rem 0;
+      background: rgba(192, 57, 43,1.0);
+      margin: .4rem 0;
+      border-radius: 3rem;
+    }
+  }
+
+  &__name {
+    margin-right: 5rem;
+    font-weight: 900;
+
+    & span {
+      display: inline-block;
+    }
+
+    & span:nth-child(1) {
+      color: rgba(192, 57, 43,1.0);
+      font-size: 3rem;
+
+      @media only screen and (max-width: 64em) {
+        font-size: 4rem;
+      }
+    }
+
+    & span:nth-child(2) {
+      color: rgba(16, 172, 132,1.0);
+      font-size: 3rem;
+      text-transform: uppercase;
+
+      @media only screen and (max-width: 64em) {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  &__slider--overlay {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background: #000000;
+    right: 0;
+    opacity: .7;
+    z-index: 1000;
+    display: none;
+  }
+}
