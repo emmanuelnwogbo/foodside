@@ -28,7 +28,8 @@ export const recipeReducer  = (state=initialState, action={}) => {
         recipes: action.payload.recipes,
         count: action.payload.count,
         error: action.payload.error ? "limit" : undefined,
-        initialRecipe: action.payload.recipes ? action.payload.recipes[0] : null
+        initialRecipe: action.payload.recipes ? action.payload.recipes[0] : null,
+        recipeClicked: false
       });
     case GET_RECIPES_PENDING:
       return Object.assign({}, state, {
@@ -68,7 +69,8 @@ export const recipeDetailsReducer = (state=initialState, action={}) => {
         recipes: action.payload.recipes,
         count: action.payload.count,
         error: action.payload.error ? "limit" : undefined,
-        initialRecipe: action.payload.recipes ? action.payload.recipes[0] : null
+        initialRecipe: action.payload.recipes ? action.payload.recipes[0] : null,
+        recipeClicked: false
     });
     case GET_RECIPE_DETAILS:
       return Object.assign({}, state, {

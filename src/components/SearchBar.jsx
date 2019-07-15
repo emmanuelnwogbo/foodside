@@ -14,7 +14,7 @@ class SearchBar extends Component {
 
   componentDidMount() {
     //console.log(this.props);
-    //this.props.getRecipes('pizza');
+    this.props.getRecipes('pizza');
   }
 
   setRecipeSearchTerm = (event) => {
@@ -30,6 +30,7 @@ class SearchBar extends Component {
     if (event.key === 'Enter') {
       document.getElementById('search-ui').style.display = `none`;
       this.props.setSearchTerm(event.target.value);
+      this.props.getRecipes(event.target.value);
       document.getElementById('search').blur();
       document.getElementById('search').value = '';
       document.getElementById('search-ui').firstElementChild.innerHTML = '';

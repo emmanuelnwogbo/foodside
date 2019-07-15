@@ -2,23 +2,12 @@ import React, { Suspense, lazy, Component } from 'react';
 import { connect } from 'react-redux';
 
 import '../scss/components/container.scss'
-import { getRecipeDetails } from '../reduxStore/actions';
+import { getRecipeDetails, setCurrentRecipeId } from '../reduxStore/actions';
 
 class RightContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {}
-  }
-
-  returnDetails = () => {
-
-  }
-
-  initialRecipeDetails = () => {
-    if (this.props.state.recipes.length > 0) {
-      const recipe = this.props.state.recipes[0];
-      this.props.getRecipeDetails(recipe.recipe_id, Math.floor(Math.random()*(45-25+1)+25));
-    }
   }
 
   renderIngredients = (recipe) => {
@@ -38,6 +27,15 @@ class RightContainer extends Component {
 
   componentDidMount() {
     console.log(this.props, 'right container');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps, 'inside right container')
+    if (nextProps.state.recipeClicked === false && nextProps.state.initialRecipe !== null) {
+      const recipe = nextProps.state.initialRecipe;
+      this.props.getRecipeDetails(recipe.recipe_id, Math.floor(Math.random()*(45-25+1)+25));
+      this.props.setCurrentRecipeId(recipe.recipe_id);
+    }
   }
 
   render() {
@@ -92,4 +90,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { getRecipeDetails })(RightContainer);
+export default connect(mapStateToProps, { getRecipeDetails, setCurrentRecipeId })(RightContainer);
