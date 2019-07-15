@@ -13,11 +13,19 @@
     font-size: 3rem;
   }
 
+  @media only screen and (max-width: 30em) {
+    font-size: 1.5rem;
+  }
+
   &__inputarea {
     width: 20rem;
 
     @media only screen and (max-width: 64em) {
       width: 30rem;
+    }
+
+    @media only screen and (max-width: 30em) {
+      width: 28rem
     }
   }
 }

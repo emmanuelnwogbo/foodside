@@ -9,6 +9,10 @@
   display: flex;
   align-items: center;
 
+  @media only screen and (max-width: 37.5em) {
+    padding: 2rem;
+  }
+
   &__burger {
     margin-right: 1.5rem;
 
@@ -19,6 +23,11 @@
       background: rgba(192, 57, 43,1.0);
       margin: .4rem 0;
       border-radius: 3rem;
+
+      @media only screen and (max-width: 37.5em) {
+        width: 4rem;
+        padding: .3rem 0;
+      }
     }
   }
 
@@ -37,6 +46,10 @@
       @media only screen and (max-width: 64em) {
         font-size: 4rem;
       }
+
+      @media only screen and (max-width: 37.5em) {
+        font-size: 2rem;
+      }     
     }
 
     & span:nth-child(2) {
@@ -47,6 +60,10 @@
       @media only screen and (max-width: 64em) {
         font-size: 4rem;
       }
+
+      @media only screen and (max-width: 37.5em) {
+        font-size: 2rem;
+      } 
     }
   }
 
