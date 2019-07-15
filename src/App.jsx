@@ -51,8 +51,8 @@ class App extends Component {
         {this.returnMobileHeader()}
         <div className={'mobileheader__slider--overlay'} onClick={this.closeSidenav}></div>
         <div id='search-ui' onClick={this.keepSearchUiOpen}>
-          <div></div>
-          <span className={'close-search-ui'}>
+          <div id='search-ui-text'><span></span><span id='search-ui-cursor'>|</span></div>
+          <span id='search-ui-close' className={'close-search-ui'}>
             <svg className={'close-search-ui'}>
               <use className={'close-search-ui'} xlinkHref="./imgs/sprite.svg#icon-cross" />
             </svg>

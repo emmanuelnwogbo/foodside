@@ -66,7 +66,19 @@ html {
   padding: 7rem 10rem;
   letter-spacing: .2rem;
 
-  & span {
+  &-text {
+    min-height: 20rem;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+  }
+
+  &-cursor {
+    color: #fff;
+    animation: cursorBlink .8s linear .3s infinite; 
+  }
+
+  &-close {
     position: absolute;
     top: 4%;
     right: 2%;

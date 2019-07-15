@@ -17,7 +17,7 @@ class SearchBar extends Component {
 
   setRecipeSearchTerm = (event) => {
     //console.log(event.target.value);
-    document.getElementById('search-ui').firstElementChild.innerHTML = event.target.value;
+    document.getElementById('search-ui').firstElementChild.firstElementChild.innerHTML = event.target.value;
   }
 
   openSearchUI = () => {
@@ -35,7 +35,7 @@ class SearchBar extends Component {
       this.props.getRecipes(event.target.value);
       document.getElementById('search').blur();
       document.getElementById('search').value = '';
-      document.getElementById('search-ui').firstElementChild.innerHTML = '';
+      document.getElementById('search-ui').firstElementChild.firstElementChild.innerHTML = '';
     }
   }
 
