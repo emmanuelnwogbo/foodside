@@ -9,6 +9,12 @@
   cursor: pointer;
   transition: all .2s ease-in;
 
+  @media only screen and (max-width: 30em) {
+    height: 32rem;
+    text-align: left;
+    flex-direction: column;
+  }
+
   &:hover {
     box-shadow: 0 1rem 20rem rgba(192, 57, 43,1.0); 
 
@@ -27,6 +33,10 @@
     width: 35%;
     overflow: hidden;
     transition: all .2s ease-in;
+
+    @media only screen and (max-width: 30em) {
+      width: 100%
+    }
 
     &::before {
       content: '';

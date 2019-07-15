@@ -7,9 +7,7 @@ import { getRecipes, setSearchTerm } from '../reduxStore/actions';
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      searchUI: true
-    }
+    this.state = {}
   }
 
   componentDidMount() {

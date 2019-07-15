@@ -21,11 +21,17 @@ const Recipe = ({
   console.log(state);
   const handleRecipeClick = () => {
     if (state.currentRecipeId === id) {
+      const container_right = document.querySelector('.container__right');
+      container_right.style.zIndex = 5;
+      container_right.style.opacity = 1;
       return;
     }
     
     getRecipeDetails(id, time_to_prepare);
     setCurrentRecipeId(id);
+    const container_right = document.querySelector('.container__right');
+    container_right.style.zIndex = 5;
+    container_right.style.opacity = 1;
   }
 
   return (

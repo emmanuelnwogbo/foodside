@@ -25,6 +25,12 @@ class RightContainer extends Component {
     })
   }
 
+  close = () => {
+    const container_right = document.querySelector('.container__right');
+    container_right.style.zIndex = -1;
+    container_right.style.opacity = 0;
+  }
+
   componentDidMount() {
     console.log(this.props, 'right container');
   }
@@ -40,12 +46,27 @@ class RightContainer extends Component {
 
   render() {
     if (this.props.state.error === 'limit') {
-      return <div className={'container__right--error container__side'}></div>
+      return <div className={'container__right--error container__side'}>
+          <div className={'container__right--close'} onClick={this.close}>
+            <span>
+              <svg>
+                <use xlinkHref="./imgs/sprite.svg#icon-cross" />
+              </svg>
+            </span>
+          </div>  
+      </div>
     }
 
     if (this.props.state.recipeDetails === null) {
       return (
         <div className={'container__right container__side'}>
+          <div className={'container__right--close'} onClick={this.close}>
+            <span>
+              <svg>
+                <use xlinkHref="./imgs/sprite.svg#icon-cross" />
+              </svg>
+            </span>
+          </div>        
           <div style={{
             height: '100%',
             width: '100%',
@@ -65,6 +86,13 @@ class RightContainer extends Component {
     if (this.props.state.recipeDetails !== null) {
       return (
         <div className={'container__right container__side'}>
+          <div className={'container__right--close'} onClick={this.close}>
+            <span>
+              <svg>
+                <use xlinkHref="./imgs/sprite.svg#icon-cross" />
+              </svg>
+            </span>
+          </div>
           <figure>
             <img src={this.props.state.recipeDetails.recipe.image_url}/>
           </figure>

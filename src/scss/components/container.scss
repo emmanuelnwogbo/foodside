@@ -14,6 +14,14 @@
     height: 100%;
     background: #fff;
     z-index: 30;
+
+    @media only screen and (max-width: 110.375em) {
+      width: 3%;
+    }
+
+    @media only screen and (max-width: 74.375em) {
+      width: 4%;
+    }
   }
 
   &__side {
@@ -26,6 +34,10 @@
     overflow: scroll;
     overflow-x: hidden;
     z-index: 4;
+
+    @media only screen and (max-width: 64em) {
+      width: 100%;
+    }
   }
 
   &__right {
@@ -39,6 +51,67 @@
     overflow: scroll;
     overflow-x: hidden;
     padding-bottom: 8rem;
+    transition: all .2s ease-in;
+
+    &--close {
+      display: none;
+      position: absolute;
+      top: 3%;
+      right: 6%;
+      z-index: 1000;
+
+      & span {
+        position: absolute;
+        top: 4%;
+        right: 2%;
+        height: 7rem;
+        width: 7rem;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+    
+        & svg {
+          height: 5rem;
+          width: 5rem;
+          fill: #000000;
+        }
+      } 
+
+      @media only screen and (max-width: 64em) {
+        display: block;
+      }
+    }
+
+    @media only screen and (max-width: 112.5em) {
+      width: 80%;
+    }
+
+    @media only screen and (max-width: 110.375em) {
+      width: 95%;
+    }
+
+    @media only screen and (max-width: 93.75em) {
+      width: 75%;
+    }
+
+    @media only screen and (max-width: 81.25em) {
+      width: 60%;
+    }
+
+    @media only screen and (max-width: 64em) {
+      position: fixed;
+      width: 100%;
+      transform: translate(0);
+      height: 100%;
+      overflow: scroll;
+      top: 8%;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+    }
 
     &--error {
       position: relative;
@@ -51,6 +124,18 @@
       overflow: scroll;
       overflow-x: hidden;
       padding-bottom: 8rem;
+
+      @media only screen and (max-width: 64em) {
+        position: fixed;
+        width: 100%;
+        transform: translate(0);
+        height: 100%;
+        overflow: scroll;
+        top: 8%;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+      }
     }
 
     & figure {
@@ -126,7 +211,11 @@
       font-weight: 900;
       color: #fff;
       font-size: 2rem;
-      box-shadow: 1rem 1rem 32rem #10ac84;    
+      box-shadow: 1rem 1rem 32rem #10ac84;   
+      
+      @media only screen and (max-width: 64em) {
+        left: 4%;
+      }
     }
 
     &__timetoprepare {
@@ -145,6 +234,26 @@
       color: #fff;
       font-size: 2rem;
       box-shadow: 1rem 1rem 32rem #10ac84;
+
+      @media only screen and (max-width: 106.25em) {
+        width: 25%;
+      }
+
+      @media only screen and (max-width: 95em) {
+        width: 30%;
+      }
+
+      @media only screen and (max-width: 84em) {
+        width: 35%;
+      }
+
+      @media only screen and (max-width: 77em) {
+        width: 40%;
+      }
+
+      @media only screen and (max-width: 37.5em) {
+        width: 62%;
+      }
     }
   }
 }
